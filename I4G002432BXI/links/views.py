@@ -1,27 +1,27 @@
-from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView,UpdateAPIView, DestroyAPIView
+from rest_framework import generics
 from .models import Link
 from .serializers import LinkSerializer
 
 
 # Create your views here.
 
-class PostListApi(ListAPIView):
+class PostListApi(generics.ListAPIView):
     queryset = Link.objects.filter(active=True)
     serializer_class = LinkSerializer
 
-class PostCreateApi(CreateAPIView):
+class PostCreateApi(generics.CreateAPIView):
     queryset = Link.objects.filter(active=True)
     serializer_class = LinkSerializer
 
-class PostDetailApi(RetrieveAPIView):
+class PostDetailApi(generics.RetrieveAPIView):
     queryset = Link.objects.filter(active=True)
     serializer_class = LinkSerializer
 
-class PostUpdateApi(UpdateAPIView):
+class PostUpdateApi(generics.UpdateAPIView):
     queryset = Link.objects.filter(active=True)
     serializer_class = LinkSerializer
 
-class PostDeleteApi(DestroyAPIView):
+class PostDeleteApi(generics.DestroyAPIView):
     queryset= Link.objects.filter(active=True)
     serializer_class = LinkSerializer
 
